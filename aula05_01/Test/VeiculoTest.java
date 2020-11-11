@@ -44,7 +44,14 @@ class VeiculoTest {
     @ParameterizedTest
     @ValueSource(ints = {0,1,2})
     void testRodasParametrizado(int parametro){
-        Veiculo v = new Veiculo("aquatico","abcde", 0, 200);
+        Veiculo v = new Veiculo("aquatico","abcde", parametro, 200);
         assertEquals(parametro, v.getNroRodas());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abcde", "12345", "a2c4e"})
+    void testChassiParametrizado(String parametro){
+        Veiculo v = new Veiculo("aquatico",parametro, 0, 200);
+        assertEquals(parametro, v.getNroChassi());
     }
 }
