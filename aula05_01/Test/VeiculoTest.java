@@ -20,22 +20,17 @@ class VeiculoTest {
     @Test
     @RepeatedTest(10)
     @DisplayName("Teste getnroRodas")
-    void test() {
+    void testaNroRodas() {
         Veiculo v = new Veiculo("aquatico","abcde", 0, 200);
         listaVeiculos.add(v);
         assertEquals(0, v.getNroRodas());
     }
 
     @Test
-    @DisplayName("xxxx")
-    void clonar() {
-    }
-
-    @Test
-    void compara1() {
-    }
-
-    @Test
-    void compara2() {
+    @RepeatedTest(value=3, name ="Caso de teste número {currentRepetition}/{totalRepetitions}")
+    void testaPotencia(){
+        Veiculo v = new Veiculo("aquatico","abcde", 0, 200);
+        listaVeiculos.add(v);
+        assertEquals(200, v.getPotenciaMotor());
     }
 }
