@@ -54,4 +54,37 @@ class VeiculoTest {
         Veiculo v = new Veiculo("aquatico",parametro, 0, 200);
         assertEquals(parametro, v.getNroChassi());
     }
+
+    @ParameterizedTest
+    @ValueSource(floats = {1.2f, 1.3f, 5.0f})
+    void testFloatParametrizado(float parametro){
+        Veiculo v = new Veiculo("aquatico","abcde", 0, 200, parametro);
+        assertEquals(parametro, v.getA());
+    }
+
+    /*EXERCICIOS*/
+
+    @Test
+    @DisplayName("Teste compareTo")
+    void testeCompara1(){
+        Veiculo v1 = new Veiculo("aquatico","abcde", 0, 200);
+        Veiculo v2 = v1.clonar();
+        assertEquals(1, v1.compara1(v1,v2));
+    }
+
+    @Test
+    @DisplayName("Teste compareTo")
+    void testeCompara2(){
+        Veiculo v1 = new Veiculo("aquatico","abcde", 0, 200);
+        Veiculo v2 = v1.clonar();
+        assertEquals(0, v1.compara2(v1,v2));
+    }
+
+    @Test
+    @DisplayName("Teste clonar")
+    void testeCClonar(){
+        Veiculo v1 = new Veiculo("aquatico","abcde", 0, 200);
+        Veiculo v2 = v1.clonar();
+        assertFalse(v1 == v2);
+    }
 }

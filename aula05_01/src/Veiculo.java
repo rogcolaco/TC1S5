@@ -4,12 +4,23 @@ public class Veiculo {
     private String nroChassi;
     private int nroRodas;
     private int potenciaMotor;
+    private float a;
+
+
 
     public Veiculo(String tipo, String nroChassi, int nroRodas, int potenciaMotor) {
         this.tipo = tipo;
         this.nroChassi = nroChassi;
         this.nroRodas = nroRodas;
         this.potenciaMotor = potenciaMotor;
+    }
+
+    public Veiculo(String tipo, String nroChassi, int nroRodas, int potenciaMotor, float a) {
+        this.tipo = tipo;
+        this.nroChassi = nroChassi;
+        this.nroRodas = nroRodas;
+        this.potenciaMotor = potenciaMotor;
+        this.a = a;
     }
 
     public String getTipo() {
@@ -42,6 +53,14 @@ public class Veiculo {
 
     public void setPotenciaMotor(int potenciaMotor) {
         this.potenciaMotor = potenciaMotor;
+    }
+
+    public float getA() {
+        return a;
+    }
+
+    public void setA(float a) {
+        this.a = a;
     }
 
     public Veiculo clonar(){
