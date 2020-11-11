@@ -63,6 +63,12 @@ public class Veiculo {
         this.a = a;
     }
 
+    @Override
+    public String toString() {
+        return  " Tipo: " + tipo + "\n Chassi: " + nroChassi +
+        "\n Rodas: " + nroRodas + "\n Poitencia: " + potenciaMotor;
+    }
+
     public Veiculo clonar(){
         Veiculo veiculo = new Veiculo(this.tipo, this.nroChassi,this.nroRodas, this.potenciaMotor);
         return veiculo;
@@ -84,4 +90,6 @@ public class Veiculo {
             return 0;
         }
     }
+
+
 }

@@ -73,7 +73,7 @@ class VeiculoTest {
     }
 
     @Test
-    @DisplayName("Teste compareTo")
+    @DisplayName("Teste ----")
     void testeCompara2(){
         Veiculo v1 = new Veiculo("aquatico","abcde", 0, 200);
         Veiculo v2 = v1.clonar();
@@ -82,7 +82,7 @@ class VeiculoTest {
 
     @Test
     @DisplayName("Teste clonar")
-    void testeCClonar(){
+    void testeClonar(){
         Veiculo v1 = new Veiculo("aquatico","abcde", 0, 200);
         Veiculo v2 = v1.clonar();
         assertFalse(v1 == v2);
