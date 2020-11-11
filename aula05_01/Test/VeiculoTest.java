@@ -17,7 +17,8 @@ class VeiculoTest {
 
     }
 
-    @Test
+    /*REPEATEDTEST DISPENSA ANOTACAO @TEST*/
+
     @RepeatedTest(10)
     @DisplayName("Teste getnroRodas")
     void testaNroRodas() {
@@ -26,7 +27,6 @@ class VeiculoTest {
         assertEquals(0, v.getNroRodas());
     }
 
-    @Test
     @RepeatedTest(value=3, name ="Caso de teste número {currentRepetition}/{totalRepetitions}")
     void testaPotencia(){
         Veiculo v = new Veiculo("aquatico","abcde", 0, 200);
