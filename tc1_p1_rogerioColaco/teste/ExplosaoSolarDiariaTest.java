@@ -62,5 +62,50 @@ class ExplosaoSolarDiariaTest {
     }
 
     @Test
+    @DisplayName("Teste Clone AssertAll")
+    @Order(5)
+    void testClonar(){
+        ArrayList<String> listaClasseExplosoes = new ArrayList<>();
 
+        ExplosaoSolarDiaria original = new ExplosaoSolarDiaria(1,"10/10/20",2.3f,listaClasseExplosoes);
+        original.adiciona1ClasseExplosao("Ana");
+        original.adiciona1ClasseExplosao("Rita");
+        original.adiciona1ClasseExplosao("Isis");
+        original.adiciona1ClasseExplosao("Sara");
+
+        ExplosaoSolarDiaria clonada = original.clona();
+
+        assertAll("Testa o método clonar",
+                () -> assertEquals(1,clonada.getCicloSolar()),
+                () -> assertEquals("10/10/20",clonada.getData()),
+                () -> assertEquals(2.3f,clonada.getNivelMaximoRaioX()),
+                () -> assertArrayEquals(listaClasseExplosoes.toArray(),clonada.retornaClassesExplosoes().toArray()),
+                () -> assertNotSame(original,clonada)
+        );
+    }
+
+
+    @Test
+    @DisplayName("Testa se adiciona1ClasseExplosao não adiciona itens com mais de 4 caracteres")
+    @Order(6)
+    void testAddClasse() {
+        ArrayList<String> listaExplosoes = new ArrayList<>();
+        ArrayList<String> novaListaExplosoes = new ArrayList<>();
+        ExplosaoSolarDiaria e = new ExplosaoSolarDiaria(1,"10/10/20",2.3f, listaExplosoes);
+
+        /*ESPERA-SE QUE O MÉTODO  ADICIONA1CLASSEEXPLOSAO ACEITE OS VALORES ABAIXO (MAX =4)*/
+        e.adiciona1ClasseExplosao("Ana");
+        e.adiciona1ClasseExplosao("Sara");
+
+        /*ESPERA-SE QUE O MÉTODO  ADICIONA1CLASSEEXPLOSAO NÃO ACEITE OS VALORES ABAIXO (MAX =4)*/
+        e.adiciona1ClasseExplosao("Monica");
+        e.adiciona1ClasseExplosao("Carla");
+
+        /*COMPARA A LISTA CRIADA COM O METODO ADICIONA1CLASSEEXPLOSAO COM UM ARRAY LIST COM O RESULTADO ESPERADO*/
+        novaListaExplosoes.add("Ana");
+        novaListaExplosoes.add("Sara");
+
+        assertArrayEquals(e.retornaClassesExplosoes().toArray(), novaListaExplosoes.toArray());
+
+    }
 }
