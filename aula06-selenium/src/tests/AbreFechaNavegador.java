@@ -1,7 +1,9 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AbreFechaNavegador {
@@ -28,6 +30,12 @@ public class AbreFechaNavegador {
 		
 		driver.findElement(By.id("dtNascimento")).sendKeys("14/06/1985");
 		driver.findElement(By.id("telefone")).sendKeys("(16)3638-1014");
+		
+		//JAVASCRIPT COM WEBDRIVER
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement colorElement = driver.findElement(By.id("selecionaCabelos"));
+		js.executeScript("arguments[0].value='#505050'", colorElement);
+			
 
 	}
 
