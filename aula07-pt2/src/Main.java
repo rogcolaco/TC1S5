@@ -23,5 +23,9 @@ public class Main {
         driver.findElement(By.cssSelector("input[name='nome']")).sendKeys("João");
 
         driver.findElement(By.className("inputTextFormulario")).sendKeys("Silva");
+
+        WebElement elementoDiv = driver.findElement(By.tagName("div"));
+        WebElement elementoDtNascimento = elementoDiv.findElement(By.className("inputTextFormulario"));
+        elementoDtNascimento.sendKeys("14/06/1985");
     }
 }
