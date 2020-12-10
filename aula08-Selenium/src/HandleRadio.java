@@ -14,32 +14,36 @@ public class HandleRadio {
 		//O método get abre uma página de uma certa url.
 		driver.get(url);
 		driver.manage().window().maximize();
-		WebElement radio = driver.findElement(By.xpath("//*[@id=\"cbuilder\"]"));		
+		WebElement radioCBuilder = driver.findElement(By.xpath("//*[@id=\"cbuilder\"]"));
 		//Verificar se o radio button sendo mostrado
-		if(radio.isDisplayed()) {
+		if(radioCBuilder.isDisplayed()) {
 			System.out.println("O radio button CBuilder está sendo mostrado");
 		}else {
 			System.out.println("O radio button CBuilder não está sendo mostrado");
 		}		
 		//Verificar se o radio button está habilitado
-		if(radio.isEnabled()){
+		if(radioCBuilder.isEnabled()){
 			System.out.println("O radio button CBuilder está habilitado");
 		}else {
 			System.out.println("O radio button CBuilder não está sendo habilitado");
 		}		
 		//Verificar se o radio button está selecionado
-		if(radio.isSelected()){
+		if(radioCBuilder.isSelected()){
 			System.out.println("O radio button CBuilder está selecionado");
 		}else {
 			System.out.println("O radio button CBuilder não está selecionado");
 		}		
 		Thread.sleep(5000);
-		radio.click();
+		radioCBuilder.click();
 		//Verificar se o radio button está selecionado
-		if(radio.isSelected()){
+		if(radioCBuilder.isSelected()){
 			System.out.println("O radio button CBuilder está selecionado");
 		}else {
 			System.out.println("O radio button CBuilder não está selecionado");
 		}
+
+		Thread.sleep(2000);
+
+		driver.quit();
 	}
 }
